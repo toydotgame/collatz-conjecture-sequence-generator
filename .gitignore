@@ -1,6 +1,16 @@
 # Compiled class file
 *.class
 
+# Eclipse build things
+/bin
+*.ant
+/.externalToolBuilders
+
+# Eclipse project files
+.project
+.classpath
+/.settings
+
 # Log file
 *.log
 
