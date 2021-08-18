@@ -11,13 +11,19 @@ public class Main {
 	
 	public static boolean useEquations;
 	public static boolean oddEvenDisplay;
+	public static boolean printSteps;
 	
 	public static void main(String[] args) {
-		useEquations = configEquationOutput();
+		printSteps = configStepPrinting();
 		scanner.nextLine(); // "Clears" Scanner buffer if anything else was entered.
 		
-		oddEvenDisplay = configOddEven();
-		scanner.nextLine();
+		if(printSteps) {
+			useEquations = configEquationOutput();
+			scanner.nextLine();
+			
+			oddEvenDisplay = configOddEven();
+			scanner.nextLine();
+		}
 		
 		System.out.print("Enter a positive integer (that is less than 2^63): ");
 		String inputString = scanner.next();
@@ -88,6 +94,16 @@ public class Main {
 	
 	public static boolean configOddEven() {
 		System.out.print("Say if a number is odd or even? [y/n] ");
+		String optionInput = scanner.next().toLowerCase();
+		if(optionInput.equals("y")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static boolean configStepPrinting() {
+		System.out.print("Show calculation steps? [y/n] ");
 		String optionInput = scanner.next().toLowerCase();
 		if(optionInput.equals("y")) {
 			return true;
