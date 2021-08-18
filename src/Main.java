@@ -18,15 +18,23 @@ public class Main {
 		
 		oddEvenDisplay = configOddEven();
 		scanner.nextLine();
-
-		System.out.print("Enter an integer (that is less than 2^63): ");
-		input = scanner.nextLong();
 		
+		System.out.print("Enter a positive integer (that is less than 2^63): ");
+		String inputString = scanner.next();
+		try {
+			input = Long.parseLong(inputString);
+		} catch(NumberFormatException e) {}
 		scanner.close();
-		collatz(input);
-		System.out.println("\nSteps:        " + String.valueOf(steps));
-		System.out.println("Even numbers: " + String.valueOf(evenTotal));
-		System.out.println("Odd numbers:  " + String.valueOf(oddTotal));
+		
+		if(input > 0) {
+			collatz(input);
+
+			System.out.println("\nSteps:        " + String.valueOf(steps));
+			System.out.println("Even numbers: " + String.valueOf(evenTotal));
+			System.out.println("Odd numbers:  " + String.valueOf(oddTotal));
+		} else {
+			System.out.println("Please enter a valid positive integer.");
+		}
 	}
 
 	public static void collatz(long input) {
@@ -69,13 +77,13 @@ public class Main {
 	}
 	
 	public static boolean configEquationOutput() {
-			System.out.print("Print equations? [y/n] ");
-			String optionInput = scanner.next().toLowerCase();
-			if(optionInput.equals("y")) {
-				return true;
-			} else {
-				return false;
-			}
+		System.out.print("Print equations? [y/n] ");
+		String optionInput = scanner.next().toLowerCase();
+		if(optionInput.equals("y")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public static boolean configOddEven() {
