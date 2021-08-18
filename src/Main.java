@@ -34,6 +34,10 @@ public class Main {
 		
 		if(input > 0) {
 			collatz(input);
+			
+			if(!printSteps) {
+				System.out.println("Done!\n\nThe number " + String.valueOf(input) + " ends in the 4,2,1 loop.");
+			}
 
 			System.out.println("\nSteps:        " + String.valueOf(steps));
 			System.out.println("Even numbers: " + String.valueOf(evenTotal));
@@ -45,7 +49,11 @@ public class Main {
 
 	public static void collatz(long input) {
 		current = input;
-		System.out.println("\nStarting at " + String.valueOf(current));
+		if(printSteps) {
+			System.out.println("\nStarting at " + String.valueOf(current));
+		} else {
+			System.out.println("\nCalculating...");
+		}
 		
 		while(current > 1) {
 			if(current % 2 == 0) {
@@ -55,7 +63,9 @@ public class Main {
 				next = 3 * current + 1;
 				oddTotal++;
 			}
-			printStep();
+			if(printSteps) {
+				printStep();
+			}
 			current = next;
 			steps++;
 		}
