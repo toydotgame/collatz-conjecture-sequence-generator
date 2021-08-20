@@ -83,7 +83,7 @@ public class Main {
 		
 		if(useEquations) {
 			if(current % 2 != 0) {
-				System.out.println(oddEven + "3(" + String.valueOf(current) + ") + 1 = " + String.valueOf(next));
+				System.out.println(oddEven + "3 * " + String.valueOf(current) + " + 1 = " + String.valueOf(next));
 			} else {
 				System.out.println(oddEven + String.valueOf(current) + " / 2 = " + String.valueOf(next));
 			}
