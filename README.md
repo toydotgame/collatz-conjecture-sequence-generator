@@ -13,6 +13,7 @@ java -jar Collatz.jar
 
 ### Configuration
 There are three options available currently:
+
 Option Name | Options | Description
 ----------- | ------- | -----------
 Show calculation steps? | `y` or `n` | Show each individual number in the sequence of numbers calculated. If `n` is chosen, stats will be shown at the end about sequence length, and numbers of odd and even numbers.
